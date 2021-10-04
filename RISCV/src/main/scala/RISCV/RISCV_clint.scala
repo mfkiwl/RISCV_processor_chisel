@@ -113,12 +113,12 @@ class RISCV_clint extends Module{
     is (S_CSR_MSTATUS.U) {
       io.csr_write_o := true.B
       io.csr_waddr_o := Cat(Fill(20, 0.U), CSR_MSTATUS.U)
-      io.csr_wdata_o := Cat(io.csr_mstatus_i(31, 4), 0.U(1.W), io.csr_mstatus_i(2, 0))
+      io.csr_wdata_o := Cat(io.csr_mstatus_i(31, 8), io.csr_mstatus_i(3), io.csr_mstatus_i(6, 4), 0.U(1.W), io.csr_mstatus_i(2, 0))
     }
     is (S_CSR_MSTATUS_MRET.U) {
       io.csr_write_o := true.B
       io.csr_waddr_o := Cat(Fill(20, 0.U), CSR_MSTATUS.U)
-      io.csr_wdata_o := Cat(io.csr_mstatus_i(31, 4), io.csr_mstatus_i(7), io.csr_mstatus_i(2, 0))
+      io.csr_wdata_o := Cat(io.csr_mstatus_i(31, 8), 1.U(1.W), io.csr_mstatus_i(6, 4),io.csr_mstatus_i(7), io.csr_mstatus_i(2, 0))
     }
   }
 

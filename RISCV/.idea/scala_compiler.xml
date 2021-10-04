@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <profile name="sbt 1" modules="RSCV" />
-    <profile name="sbt 2" modules="rpu">
+    <profile name="sbt 2" modules="RISCV,rpu">
       <option name="reflectiveCalls" value="true" />
       <option name="deprecationWarnings" value="true" />
       <option name="featureWarnings" value="true" />

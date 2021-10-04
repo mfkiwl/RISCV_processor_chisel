@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rpu.iml" filepath="$PROJECT_DIR$/.idea/modules/rpu.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rpu-build.iml" filepath="$PROJECT_DIR$/.idea/modules/rpu-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RISCV.iml" filepath="$PROJECT_DIR$/.idea/modules/RISCV.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RISCV-build.iml" filepath="$PROJECT_DIR$/.idea/modules/RISCV-build.iml" />
     </modules>
   </component>
 </project>
