@@ -385,7 +385,7 @@ module RISCV_csr_register(
       end
     end
     if (reset) begin // @[RISCV_csr_register.scala 28:24]
-      mstatus <= 32'h0; // @[RISCV_csr_register.scala 28:24]
+      mstatus <= 32'h8; // @[RISCV_csr_register.scala 28:24]
     end else if (io_csr_we_i) begin // @[RISCV_csr_register.scala 35:22]
       if (!(_T_1)) begin // @[Conditional.scala 40:58]
         if (!(_T_2)) begin // @[Conditional.scala 39:67]
@@ -815,11 +815,14 @@ module RISCV_clint(
   wire [6:0] _GEN_14 = _T_22 ? 7'h1 : _GEN_13; // @[Conditional.scala 39:67 RISCV_clint.scala 92:17]
   wire [6:0] _GEN_15 = _T_21 ? 7'h40 : _GEN_14; // @[Conditional.scala 39:67 RISCV_clint.scala 89:17]
   wire [6:0] _GEN_16 = _T_20 ? 7'h8 : _GEN_15; // @[Conditional.scala 39:67 RISCV_clint.scala 86:17]
-  wire [27:0] io_csr_wdata_o_hi_hi = io_csr_mstatus_i[31:4]; // @[RISCV_clint.scala 116:45]
-  wire [2:0] io_csr_wdata_o_lo = io_csr_mstatus_i[2:0]; // @[RISCV_clint.scala 116:80]
-  wire [31:0] _io_csr_wdata_o_T = {io_csr_wdata_o_hi_hi,1'h0,io_csr_wdata_o_lo}; // @[Cat.scala 30:58]
-  wire  io_csr_wdata_o_hi_lo = io_csr_mstatus_i[7]; // @[RISCV_clint.scala 121:70]
-  wire [31:0] _io_csr_wdata_o_T_1 = {io_csr_wdata_o_hi_hi,io_csr_wdata_o_hi_lo,io_csr_wdata_o_lo}; // @[Cat.scala 30:58]
+  wire [23:0] io_csr_wdata_o_hi_hi_hi = io_csr_mstatus_i[31:8]; // @[RISCV_clint.scala 116:45]
+  wire [2:0] io_csr_wdata_o_hi_lo = io_csr_mstatus_i[6:4]; // @[RISCV_clint.scala 116:91]
+  wire [2:0] io_csr_wdata_o_lo_lo = io_csr_mstatus_i[2:0]; // @[RISCV_clint.scala 116:125]
+  wire [31:0] _io_csr_wdata_o_T = {io_csr_wdata_o_hi_hi_hi,io_csr_mstatus_i[3],io_csr_wdata_o_hi_lo,1'h0,
+    io_csr_wdata_o_lo_lo}; // @[Cat.scala 30:58]
+  wire  io_csr_wdata_o_lo_hi = io_csr_mstatus_i[7]; // @[RISCV_clint.scala 121:103]
+  wire [31:0] _io_csr_wdata_o_T_1 = {io_csr_wdata_o_hi_hi_hi,1'h1,io_csr_wdata_o_hi_lo,io_csr_wdata_o_lo_hi,
+    io_csr_wdata_o_lo_lo}; // @[Cat.scala 30:58]
   wire [29:0] _GEN_23 = _T_23 ? 30'h300 : 30'h0; // @[Conditional.scala 39:67 RISCV_clint.scala 120:22 RISCV_clint.scala 101:18]
   wire [31:0] _GEN_24 = _T_23 ? _io_csr_wdata_o_T_1 : 32'h0; // @[Conditional.scala 39:67 RISCV_clint.scala 121:22 RISCV_clint.scala 100:18]
   wire  _GEN_25 = _T_21 | _T_23; // @[Conditional.scala 39:67 RISCV_clint.scala 114:22]
